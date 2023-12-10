@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    --header-font: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    --padding-inline: 150px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+header {
+    padding: 0px var(--padding-inline);
+    block-size: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: -1;
+}
+header > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+nav > #nav-logo {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-family: var(--header-font);
+}
+nav > .nav-links {
+    display: flex;
+    gap: 20px;
+}
+nav > .nav-links > * {
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+main {
+    color: white;
+    inline-size: clamp( 300px, 50%, 900px );
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+}
+main > h1 {
+    font-size: clamp( 2rem, calc( 2.5vw + 0.8rem ), 3.125rem );
+    text-transform: capitalize;
+    font-family: var(--header-font);
+}
+main > a {
+    margin-block-start: 20px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+section {
+    padding: 100px var(--padding-inline);
+}
+
+
+/* styling the topic section */
+section:nth-child(2) {
+    background-color: white;
+}
+section > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+section > div > h2 {
+    font-size: clamp( 2rem, calc( 5.1vw + 0.2rem ), 6rem );
+    text-transform: capitalize;
+    font-family: var(--header-font);
+    margin: 0px;
+}
+section > div > img {
+    transform: scale(0.8);
+    object-fit: cover;
+    width: clamp( 150px, 50vw, 300px );
+    height: clamp( 150px, 10vw, 300px );
+}
+
+
+/* styling the admonition section */
+section:nth-child(3) {
+    background-color: lightgray;
+}
+section > h2 {
+    text-align: center;
+    font-size: clamp( 2rem, calc( 2.5vw + 0.3rem ), 3.125rem );
+    text-transform: capitalize;
+}
+section > a {
+    display: flex;
+    align-items: center;
+    inline-size: max-content;
+    padding: 10px 20px;
+    gap: 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    margin-inline: auto;
+    margin-block-start: 90px;
+}
+
+
+/* hiding specific elements that are based on scroll-reveal */
+html.sr .headline,
+html.sr .headline-admonition,
+html.sr .scroll-text,
+html.sr .scroll-image {
+    visibility: hidden;
+}
+
+
+
+/* adding responsiveness to the page */
+@media screen and ( max-width: 1100px ) {
+    * {
+        --padding-inline: 40px;
+    }
+}
+
+
+@media screen and ( max-width: 500px ) {
+    * {
+        --padding-inline: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
